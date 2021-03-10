@@ -18,6 +18,6 @@
     <string name="trouble">Having Trouble Authentication?</string>
     <string name="verification_code_empty">Verification code is empty. Id is blocked by firebase. Test with another mobile number</string>
     <string name="sms_code_null">Unable to get sms code.</string>
-    <string name="sign_in_fail">Unable to Sign In.</string>
+    <string name="sign_in_fail">Unable to Sign In. Verify OTP and try again</string>
     <string name="timeout_otp_detect">Unable auto detect OTP Timeout. Please check sms and update.</string>
 </resources>

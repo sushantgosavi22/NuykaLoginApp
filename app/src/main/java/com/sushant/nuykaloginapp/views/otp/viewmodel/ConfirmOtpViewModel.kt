@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit
 
 
 class ConfirmOtpViewModel(application: Application) : BaseViewModel(application) {
+    private var mForceResendingToken: PhoneAuthProvider.ForceResendingToken? = null
     private var verificationId: String? = null
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     var otpModel: OtpModel = OtpModel()
@@ -27,11 +28,19 @@ class ConfirmOtpViewModel(application: Application) : BaseViewModel(application)
     fun sendVerificationCode(number: String, phoneAuthOptions: PhoneAuthOptions.Builder) {
         mSaveUserCallBack.value = Resource.showLoading()
         mSaveUserCallBack.value = Resource.registerReceiver()
-        val options = phoneAuthOptions
-                .setPhoneNumber(number)
-                .setTimeout(60L, TimeUnit.SECONDS)
-                .setCallbacks(mCallBack)
-                .build()
+        val mPhoneAuthOptions = if (mForceResendingToken != null) {
+            mForceResendingToken?.let {
+                phoneAuthOptions.setForceResendingToken(mForceResendingToken)
+            } ?: phoneAuthOptions
+        } else {
+            phoneAuthOptions
+        }
+        val options =
+                mPhoneAuthOptions
+                        .setPhoneNumber(number)
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setCallbacks(mCallBack)
+                        .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
@@ -73,6 +82,7 @@ class ConfirmOtpViewModel(application: Application) : BaseViewModel(application)
                 override fun onCodeSent(s: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
                     super.onCodeSent(s, forceResendingToken)
                     verificationId = s
+                    mForceResendingToken = forceResendingToken
                     mSaveUserCallBack.value = Resource.hideLoading()
                 }
 
