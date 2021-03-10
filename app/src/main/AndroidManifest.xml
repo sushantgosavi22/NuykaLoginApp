@@ -4,18 +4,40 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NuykaLoginApp">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.NoActionBar">
+
+        <activity
+            android:name=".views.splash.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".views.login.view.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".views.otp.view.ConfirmOtpActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".views.dashboard.view.DashboardActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".receiver.SmsReceiver" android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

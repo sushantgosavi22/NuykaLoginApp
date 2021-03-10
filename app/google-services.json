@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "959571350235",
+    "project_id": "nuykaloginapp",
+    "storage_bucket": "nuykaloginapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959571350235:android:00fe4e8830917cccf272fe",
+        "android_client_info": {
+          "package_name": "com.sushant.nuykaloginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959571350235-fiuqpa0kqim9ne7gs4dqanaa9vih4pn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sushant.nuykaloginapp",
+            "certificate_hash": "c859761900df322c9f84a207bbed56262e1fb5a2"
+          }
+        },
+        {
+          "client_id": "959571350235-nrrse7a8b0s0hsn7863h1gi0b3jdq9o7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmUfgojOf-5eWk_5qMv8eYC3WuhgK-254"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959571350235-nrrse7a8b0s0hsn7863h1gi0b3jdq9o7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
